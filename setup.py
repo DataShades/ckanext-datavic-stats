@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 version = '0.1'
 
 setup(
-	name='ckanext-dga-stats',
+	name='ckanext-datavic-stats',
 	version=version,
 	description='Extension for customising CKAN Statistics for data.gov.au',
 	long_description='',
@@ -14,13 +14,13 @@ setup(
 	url='',
 	license='',
 	packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
-	namespace_packages=['ckanext', 'ckanext.dga_stats'],
+	namespace_packages=['ckanext', 'ckanext.datavic_stats'],
 	include_package_data=True,
 	zip_safe=False,
 	install_requires=[],
 	entry_points=\
 	"""
         [ckan.plugins]
-        dga_stats=ckanext.dga_stats.plugin:StatsPlugin
+        datavic_stats=ckanext.datavic_stats.plugin:StatsPlugin
 	""",
 )

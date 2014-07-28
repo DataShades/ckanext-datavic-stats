@@ -7,7 +7,7 @@ class StatsFixture(object):
     @classmethod
     def setup_class(cls):
         cls._original_config = config.copy()
-        config['ckan.plugins'] = 'dga_stats'
+        config['ckan.plugins'] = 'datavic_stats'
         wsgiapp = make_app(config['global_conf'], **config)
         cls.app = paste.fixture.TestApp(wsgiapp)
 

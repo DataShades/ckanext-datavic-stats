@@ -32,31 +32,6 @@
         <p class="empty">{{ _('No groups') }}</p>
       {% endif %}
     </section>
-    <section id="stats-recent-datasets" class="module-content tab-content">
-      <h2>{{ _('Recent Datasets') }}</h2>
-      {% if c.recent_datasets %}
-        <table class="table table-chunky table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>{{ _('Date') }}</th>
-              <th>{{ _('Dataset') }}</th>
-              <th>{{ _('New/Modified') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for date,package,newmodified in c.recent_datasets %}
-              <tr>
-                <td>{{ date }}</td>
-                <td>{{ h.link_to(package.title or package.name, h.url_for(controller='package', action='read', id=package.name)) }}</td>
-                <td>{{ newmodified }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      {% else %}
-        <p class="empty">{{ _('No groups') }}</p>
-      {% endif %}
-    </section>
     <section id="stats-user-access-list" class="module-content tab-content">
       <h2>{{ _('User Access List') }}</h2>
       {% if c.user_access_list %}
@@ -296,7 +271,6 @@
     <nav data-module="stats-nav">
       <ul class="unstyled nav nav-simple">
 {% if h.check_access('sysadmin') %}
-        <li class="nav-item"><a href="#stats-recent-datasets" data-toggle="tab">{{ _('Recent Datasets') }}</a></li>
         <li class="nav-item"><a href="#stats-user-access-list" data-toggle="tab">{{ _('User Access List') }}</a></li>
 {% endif %}
         <li class="nav-item"><a href="#stats-total-datasets" data-toggle="tab">{{ _('Total Number of Datasets') }}</a></li>
@@ -305,7 +279,7 @@
         <li class="nav-item"><a href="#stats-by-org" data-toggle="tab">{{ _('Datasets by Organization') }}</a></li> 
         <li class="nav-item"><a href="#stats-res-by-org" data-toggle="tab">{{ _('Resources by Organization') }}</a></li> 
         <li class="nav-item"><a href="#stats-activity-org" data-toggle="tab">{{ _('Most Active Organisations') }}</a></li>
-        <li class="nav-item active"><a href="//data.gov.au/site-usage" data-toggle="tab">Site Analytics</a></li>
+<!--        <li class="nav-item active"><a href="//data.gov.au/site-usage" data-toggle="tab">Site Analytics</a></li> -->
         <li class="nav-item active"><a href="#stats-summary" data-toggle="tab">{{ _('Summary') }}</a></li> 
       </ul>
     </nav>
@@ -320,5 +294,5 @@ overriding the createElement() method on this page.
 See: http://stackoverflow.com/questions/10208062/using-flot-with-bootstrap-ie8-incompatibility
 #}
 {% resource "vendor/block_html5_shim" %}
-{% resource "ckanext_dga_stats/stats" %}
+{% resource "ckanext_datavic_stats/stats" %}
 {% endblock %}

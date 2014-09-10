@@ -60,7 +60,7 @@
 {% endif %}
     <section id="stats-total-datasets" class="module-content tab-content active">
       <h2>{{ _('Total number of Datasets') }}</h2>
-      <div class='user-block-holder'><div class='btn-holder show-only-table no-no' onclick='switchToPlot()'>Change to plot view</div><div class='btn-holder yes-yes' onclick='switchToTable()'>Change to table view</div></div>
+      <div class='user-block-holder'><div class='btn-holder show-only-table no-no' onclick='switchToPlot()'><span>Change to plot view</span></div><div class='btn-holder yes-yes' onclick='switchToTable()'><span>Change to table view</span></div></div>
 
       {% set xaxis = {'mode': 'time', 'timeformat': '%y-%b'} %}
       {% set yaxis = {'min': 0} %}
@@ -86,7 +86,7 @@
 
     <section id="stats-dataset-revisions" class="module-content tab-content">
       <h2>{{ _('Dataset Revisions per Week') }}</h2>
-      <div class='user-block-holder'><div class='btn-holder show-only-table no-no' onclick='switchToPlot()'>Change to plot view</div><div class='btn-holder yes-yes' onclick='switchToTable()'>Change to table view</div></div>
+       <div class='user-block-holder'><div class='btn-holder show-only-table no-no' onclick='switchToPlot()'><span>Change to plot view</span></div><div class='btn-holder yes-yes' onclick='switchToTable()'><span>Change to table view</span></div></div>
 
       {% set xaxis = {'mode': 'time', 'timeformat': '%y-%b'} %}
       {% set lines = {'fill': 1} %}

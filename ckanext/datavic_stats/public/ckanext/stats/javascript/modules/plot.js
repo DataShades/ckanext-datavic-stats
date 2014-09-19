@@ -79,7 +79,9 @@ this.ckan.module('plot', function (jQuery, _) {
      */
     setupCanvas: function () {
       this.canvas = jQuery('<div class="module-plot-canvas">');
-      this.el.parent().after(this.canvas);
+      this.wrap = jQuery('<div class="canvas-wrapper">')
+      this.wrap.append(this.canvas)
+      this.el.parent().after(this.wrap);
     },
 
     /* Attempts to draw the chart if the canvas is visible. If not visible the

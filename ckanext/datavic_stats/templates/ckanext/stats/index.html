@@ -10,6 +10,7 @@
     <section id="stats-activity-counts" class="module-content tab-content">
       <h2>{{ _('Site Activity Log') }}</h2>
       {% if c.activity_counts %}
+      <div class="better-viewed" style="padding: 10px; text-align: center; display:none;">Best viewed in landscape</div>
         <table class="table table-chunky table-bordered table-striped">
           <thead>
             <tr>
@@ -35,6 +36,7 @@
     <section id="stats-user-access-list" class="module-content tab-content">
       <h2>{{ _('User Access List') }}</h2>
       {% if c.user_access_list %}
+      <div class="better-viewed" style="padding: 10px; text-align: center; display:none;">Best viewed in landscape</div>
         <table class="table table-chunky table-bordered table-striped">
           <thead>
             <tr>
@@ -65,6 +67,7 @@
       {% set xaxis = {'mode': 'time', 'timeformat': '%y-%b'} %}
       {% set yaxis = {'min': 0} %}
       <div class=' show-only-table no-no'>
+        <div class="better-viewed" style="padding: 10px; text-align: center; display:none;">Best viewed in landscape</div>
       <table class="table table-chunky table-bordered table-striped" data-module="plot" data-module-xaxis="{{ h.dump_json(xaxis) }}" data-module-yaxis="{{ h.dump_json(yaxis) }}">
         <thead>
           <tr>
@@ -91,6 +94,7 @@
       {% set xaxis = {'mode': 'time', 'timeformat': '%y-%b'} %}
       {% set lines = {'fill': 1} %}
       <div class=' show-only-table no-no'>
+        <div class="better-viewed" style="padding: 10px; text-align: center; display:none;">Best viewed in landscape</div>
       <table class="table table-chunky table-bordered table-striped" data-module="plot" data-module-xaxis="{{ h.dump_json(xaxis) }}" data-module-lines="{{ h.dump_json(lines) }}">
         <thead>
           <tr>
@@ -116,6 +120,7 @@
     <section id="stats-most-edited" class="module-content tab-content">
       <h2>{{ _('Most Edited Datasets') }}</h2>
       {% if c.most_edited_packages %}
+      <div class="better-viewed" style="padding: 10px; text-align: center; display:none;">Best viewed in landscape</div>
         <table class="table table-chunky table-bordered table-striped">
           <thead>
             <tr>
@@ -140,6 +145,8 @@
     <section id="stats-largest-groups" class="module-content tab-content">
       <h2>{{ _('Largest Groups') }}</h2>
       {% if c.largest_groups %}
+
+      <div class="better-viewed" style="padding: 10px; text-align: center; display:none;">Best viewed in landscape</div>
         <table class="table table-chunky table-bordered table-striped">
           <thead>
             <tr>
@@ -163,6 +170,7 @@
     <section id="stats-by-org" class="module-content tab-content">
       <h2>{{ _('Datasets by Organisation') }}</h2>
       {% if c.by_org %}
+      <div class="better-viewed" style="padding: 10px; text-align: center; display:none;">Best viewed in landscape</div>
         <table class="table table-chunky table-bordered table-striped">
           <thead>
             <tr>
@@ -194,6 +202,7 @@
     <section id="stats-res-by-org" class="module-content tab-content">
       <h2>{{ _('Resources by Organisation') }}</h2>
       {% if c.res_by_org %}
+      <div class="better-viewed" style="padding: 10px; text-align: center; display:none;">Best viewed in landscape</div>
         <table class="table table-chunky table-bordered table-striped">
           <thead>
             <tr>
@@ -223,6 +232,7 @@
     <section id="stats-activity-org" class="module-content tab-content">
       <h2>{{ _('Most Active Organisations') }}</h2>
       {% if c.top_active_orgs %}
+      <div class="better-viewed" style="padding: 10px; text-align: center; display:none;">Best viewed in landscape</div>
         <table class="table table-chunky table-bordered table-striped">
           <thead>
             <tr>
@@ -246,6 +256,7 @@
     <section id="stats-summary" class="module-content tab-content">
       <h2>{{ _('Statistics') }}</h2>
       {% if c.summary_stats %}
+      <div class="better-viewed" style="padding: 10px; text-align: center; display:none;">Best viewed in landscape</div>
         <table class="table table-chunky table-bordered table-striped">
           <thead>
             <tr>

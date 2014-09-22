@@ -80,7 +80,7 @@ this.ckan.module('plot', function (jQuery, _) {
     setupCanvas: function () {
       this.canvas = jQuery('<div class="module-plot-canvas">');
       this.wrap = jQuery('<div class="canvas-wrapper">');
-      this.note = jQuery('<div style="text-align: center;width: 100%;">');
+      this.note = jQuery('<div style="text-align: center;width: 100%;" class="only-mobile">');
       this.note.text('Swipe to view the graph.');
       this.wrap.append(this.note);
 

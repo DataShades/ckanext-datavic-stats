@@ -46,6 +46,7 @@ class Stats(object):
         package = table('package')
         s = select([package_revision.c.id, func.count(package_revision.c.revision_id)], from_obj=[package_revision.join(package)]).\
 	    where(package.c.private == 'f').\
+        where(package.c.state == 'active').\
             group_by(package_revision.c.id).\
             order_by(func.count(package_revision.c.revision_id).desc()).\
             limit(limit)

@@ -64,7 +64,7 @@
       <h2>{{ _('Total number of Datasets') }}</h2>
       <div class='user-block-holder'><div class='btn-holder show-only-table no-no' onclick='switchToPlot()'><span>Change to plot view</span></div><div class='btn-holder yes-yes' onclick='switchToTable()'><span>Change to table view</span></div></div>
 
-      {% set xaxis = {'mode': 'time', 'timeformat': '%y-%b'} %}
+      {% set xaxis = {'mode': 'time', 'timeformat': '%y, %d %b'} %}
       {% set yaxis = {'min': 0} %}
       <div class=' show-only-table no-no'>
         <div class="better-viewed" style="padding: 10px; text-align: center;">Best viewed in landscape</div>
@@ -91,7 +91,7 @@
       <h2>{{ _('Dataset Revisions per Week') }}</h2>
        <div class='user-block-holder'><div class='btn-holder show-only-table no-no' onclick='switchToPlot()'><span>Change to plot view</span></div><div class='btn-holder yes-yes' onclick='switchToTable()'><span>Change to table view</span></div></div>
 
-      {% set xaxis = {'mode': 'time', 'timeformat': '%y-%b'} %}
+      {% set xaxis = {'mode': 'time', 'timeformat': '%y, %d %b'} %}
       {% set lines = {'fill': 1} %}
       <div class=' show-only-table no-no'>
         <div class="better-viewed" style="padding: 10px; text-align: center;">Best viewed in landscape</div>

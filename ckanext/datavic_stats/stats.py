@@ -141,7 +141,7 @@ class Stats(object):
        connection = model.Session.connection()
 
        res = connection.execute("SELECT 'Total Organisations', count(*) from \"group\" where type = 'organization' and state = 'active' union \
-				select 'Total Datasets', count(*) from package inner join (select distinct package_id from resource_group inner join resource on resource.resource_group_id = resource_group.id) as r on package.id = r.package_id where (package.state='active' or package.state='draft' or package.state='draft-complete') and private = 'f' union \
+				select 'Total Datasets', count(*) from package where (package.state='active' or package.state='draft' or package.state='draft-complete') and private = 'f' and type = 'dataset' union \
 				select 'Total Archived Datasets', count(*) from package where (state='active' or state='draft' or state='draft-complete') and private = 't' union \
 				select 'Total Data Files/Resources', count(*) from resource where state='active' union \
 				select 'Total Machine Readable/Data API Resources', count(*) from resource where state='active' and (webstore_url = 'active' or format='wms')").fetchall();
@@ -241,8 +241,9 @@ class RevisionStats(object):
             revision = table('revision')
             package = table('package')
             s = select([package_revision.c.id, func.min(revision.c.timestamp)], from_obj=[package_revision.join(revision).join(package)]).\
-	      where(package.c.private == 'f').\
-	      group_by(package_revision.c.id).order_by(func.min(revision.c.timestamp))
+	        where(package.c.private == 'f'). \
+            where(package.c.type == 'dataset'). \
+            group_by(package_revision.c.id).order_by(func.min(revision.c.timestamp))
             res = model.Session.execute(s).fetchall() # [(id, datetime), ...]
             res_pickleable = []
             for pkg_id, created_datetime in res:
@@ -271,7 +272,8 @@ class RevisionStats(object):
             package = table('package')
             s = select([package_revision.c.id, func.min(revision.c.timestamp)], from_obj=[package_revision.join(revision).join(package)]).\
                 where(package_revision.c.state==model.State.DELETED).\
-                where(package.c.private == 'f').\
+                where(package.c.private == 'f'). \
+                where(package.c.type == 'dataset'). \
                 group_by(package_revision.c.id).\
                 order_by(func.min(revision.c.timestamp))
             res = model.Session.execute(s).fetchall() # [(id, datetime), ...]
